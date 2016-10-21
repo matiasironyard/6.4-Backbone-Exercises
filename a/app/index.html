@@ -8,7 +8,32 @@
   </head>
   <body>
 
-    <h1>Hello World!</h1>
+  <div class="containter">
+    <div class="row hearder">
+      <div class="col-md-8 header-title">
+        <h1>PostIt</h1>
+        <h4>Think it. Write it. Share it</h4>
+      </div>
+      <div class="col-md-3 header-login">
+        <div class="user">
+          <ul class="login-nav">
+            <li>New Post</li>
+            <li>Log In</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-offset-1 col-md-10 blog-entry-form">
+        <form action="">
+          <!-- <h3>Blog Entry</h3> -->
+          <input type="text" class="form-control" placeholder="Post Title">
+          <textarea class="form-control" rows="3" placeholder="Write down your thoughts..."></textarea>
+          <button type="submit" class="btn btn-default">Submit Post</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
 
     <script src="js/bundle.js"></script>
   </body>
