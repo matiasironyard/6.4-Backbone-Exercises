@@ -5,7 +5,7 @@ var Backbon = require('backbone');
 
 // *********************************model setup***********************************************
 
-var PersonModel = Backbone.Model.extend({
+var ContactModel = Backbone.Model.extend({
 idAttribute: '_id',
 defaults: {
   visible: true
@@ -15,7 +15,7 @@ defaults: {
 
 // *********************************collection setup***********************************************
 
-var PersonsCollection = Backbone.Collection.extend({
+var ContacsCollection = Backbone.Collection.extend({
   model: PersonModel,
   url: 'http://tiny-lasagna-server.herokuapp.com/collections/mmperson',
 });
@@ -24,6 +24,6 @@ var PersonsCollection = Backbone.Collection.extend({
 // *********************************exports setup***********************************************
 
 module.exports = {
-  PersonModel: PersonModel,
-  PersonsCollection: PersonsCollection,
+  ContactModel: PersonModel,
+  ContactsModel: PersonsCollection,
 };
