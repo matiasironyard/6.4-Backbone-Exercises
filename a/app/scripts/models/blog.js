@@ -1,4 +1,5 @@
-var backbone = require('backbone');
+var Backbone = require ('backbone');
+
 
 // *********************************model setup***********************************************
 
@@ -14,16 +15,15 @@ defaults: {
 
 // *********************************Collection setup***********************************************
 
-var BlogPostCollection = Backbone.Collection.extend({
-model: BlogPost,
-url: "http://tiny-lasagna-server.herokuapp.com/collections/mmblog",
-
+var BlogPostsCollection = Backbone.Collection.extend({
+model: BlogPostModel,
+url: "https://tiny-lasagna-server.herokuapp.com/collections/mmblog",
 });
 
 
 // *********************************Exports Setup**********************************************
 
-module.export = {
+module.exports = {
   BlogPostModel: BlogPostModel,
-  BlogPostCollection: BlogPostCollection,
+  BlogPostsCollection: BlogPostsCollection,
 };
