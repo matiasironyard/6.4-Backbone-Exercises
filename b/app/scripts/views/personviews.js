@@ -14,21 +14,32 @@ var ContactFormView = Backbone.View.extend({
 addContact: function(event){
   event.preventDefault();
 
-  var ContactFirstName = $('#first-name').val();
-  var ContactLastName = $('#last-name').val();
-  var ContactPhoneNumber = $('#phone-number').val();
-  var ContactStreet = $('#street').val();
-  var ContactCity = $('#city').val();
-  var ContactState = $('#state').val();
-  var ContactZipCode = $('#zip').val();
+  var contactFirstName = $('#first-name').val();
+  var contactLastName = $('#last-name').val();
+  var contactPhoneNumber = $('#phone-number').val();
+  var contactStreet = $('#street').val();
+  var contactCity = $('#city').val();
+  var contactState = $('#state').val();
+  var contactZipCode = $('#zip').val();
 
-$('#first-name').val();
-$('#last-name').val();
-$('#phone-number').val();
-$('#street').val();
-$('#city').val();
-$('#state').val();
-$('#zip').val();
+$('#first-name').val("");
+$('#last-name').val("");
+$('#phone-number').val("");
+$('#street').val("");
+$('#city').val("");
+$('#state').val("");
+$('#zip').val("");
+
+this.collection.create({
+  ContactFirstName: contactFirstName,
+  ContactLastName: contactLastName,
+  ContactPhoneNumber: contactPhoneNumber,
+  ContactStreet: contactStreet,
+  ContactCity: contactCity,
+  ContactState: contactState,
+  ContactZipCode: contactZipCode,
+
+});
 },
 
 });

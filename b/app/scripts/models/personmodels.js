@@ -1,4 +1,4 @@
-var Backbon = require('backbone');
+var Backbone = require('backbone');
 
 
 
@@ -15,8 +15,8 @@ defaults: {
 
 // *********************************collection setup***********************************************
 
-var ContacsCollection = Backbone.Collection.extend({
-  model: PersonModel,
+var ContactsCollection = Backbone.Collection.extend({
+  model: ContactModel ,
   url: 'http://tiny-lasagna-server.herokuapp.com/collections/mmperson',
 });
 
@@ -24,6 +24,6 @@ var ContacsCollection = Backbone.Collection.extend({
 // *********************************exports setup***********************************************
 
 module.exports = {
-  ContactModel: PersonModel,
-  ContactsModel: PersonsCollection,
+  ContactModel: ContactModel,
+  ContactsCollection: ContactsCollection,
 };
