@@ -1,6 +1,6 @@
 var Backbone = require('backbone');
 
-// *********************************model setup***********************************************
+// 1*********************************model setup***********************************************
 
 var BlogPostModel = Backbone.Model.extend({
   idAttribute: '_id',
@@ -9,16 +9,16 @@ var BlogPostModel = Backbone.Model.extend({
   }
 });
 
-// *********************************Collection setup***********************************************
+// 2*********************************Collection setup***********************************************
 
 var BlogPostsCollection = Backbone.Collection.extend({
   model: BlogPostModel,
   url: "https://tiny-lasagna-server.herokuapp.com/collections/mmblog",
 });
 
-// *********************************Exports Setup**********************************************
+// 3*********************************Exports Setup**********************************************
 
 module.exports = {
-  BlogPostModel: BlogPostMode,
+  BlogPostModel: BlogPostModel,
   BlogPostsCollection: BlogPostsCollection,
 };
