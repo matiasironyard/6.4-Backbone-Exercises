@@ -7,7 +7,8 @@ var views = require('./views/blogviews.js');
 
 $(function(){
 
-  var blogPostsCollection = new models.BlogPostsCollection();
+// *****instaciate-DO NOT FORGET*********************************
+var blogPostsCollection = new models.BlogPostsCollection();
 
 var blogForm = new views.BlogPostForm({collection:blogPostsCollection});
 console.log(blogForm);
