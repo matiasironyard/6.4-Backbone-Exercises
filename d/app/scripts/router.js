@@ -21,10 +21,10 @@ var AppRouter = Backbone.Router.extend({
   // 6 ----------------------------- index setup ------------------------------------------------------
 
   index: function(){
-    var addUrlForm = new views.AddUrlForm({collection: this.collection});
-    var urlListing = new views.UrlListing({collection: this.collection});
-    // console.log(urlListing);
-    // var tagListing = new views.TagListing({collection: this.collection});
+    var addUrlForm = new views.AddUrlFormView({collection: this.collection});
+    var urlListing = new views.UrlListingView({collection: this.collection});
+    console.log('urllistin', urlListing);
+    // var tagListing = new views.UrlItemView({collection: this.collection});
 
     $('.url-form')
     .html(addUrlForm.render().el);
@@ -35,18 +35,20 @@ var AppRouter = Backbone.Router.extend({
 
   // 7 --------------------------- bookmarks setup -------------------------------------------------
 
-  getBookmarks: function(id){
+  getBookmarks: function(tag){
     var self = this;
-    var bookmarks = this.collection.get(id);
+    var bookmarks = this.collection.get(tag);
+    console.log(bookmarks);
 
-    if(!bookmark){
+    if(!bookmarks){
       this.collection.fetch().then(function(){
-        self.getBookmarks(id);
+        self.getBookmarks(tag);
       });
       return;
     }
 
-    var tagUrlListing = new views.TagUrlListing({model: UrlTagModel});
+    var tagUrlListing = new views.TagUrlListingView({model: bookmarks});
+    console.log('tagUrlListing', tagUrlListing);
 
     $('.tag-listing').html(tagUrlListing.render().el);
   },
