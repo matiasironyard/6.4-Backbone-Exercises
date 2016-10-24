@@ -14,6 +14,4 @@ var blogForm = new views.BlogPostForm({collection:blogPostsCollection});
 console.log(blogForm);
 blogForm.setElement($('.blog-form')[0]);
 
-
-
 });
