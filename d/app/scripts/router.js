@@ -39,13 +39,17 @@ index: function(){
 
   var tagListing = new views.TagView({collection: this.collection});
   $('.tag-listing')
-  .html(tags.render().el);
+  .html(tagListing.el);
 },
 
 getTags: function(id){
   var self = this;
+  console.log('self---->>>', self);
   var tags = this.collection;
-  console.log('hello',tags);
+  //####
+  // Dan, above I need to do a .get(tag), but it returns undefined. Cannot figure out why???
+  //###
+  console.log('tags---->>>',tags);
 
 },
 
