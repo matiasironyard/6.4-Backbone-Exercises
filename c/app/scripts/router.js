@@ -31,16 +31,16 @@ index: function(){
 
 // 9 ****************************post setup *****************************************************
 
-getPost: function(x){
+getPost: function(id){
   var self = this;
   console.log(self);
-  var post = this.collection.get(x);
+  var post = this.collection.get(id);
   console.log('post', post);
 
   if(!post){
     this.index();
     this.collection.fetch().then(function(){
-      self.getPost(x);
+      self.getPost(id);
     });
     return;
   }
