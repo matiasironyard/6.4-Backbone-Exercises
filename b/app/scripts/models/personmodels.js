@@ -3,7 +3,7 @@ var Backbone = require('backbone');
 
 
 
-// *********************************model setup***********************************************
+// *********************************model setup*********************************
 
 var ContactModel = Backbone.Model.extend({
 idAttribute: '_id',
@@ -13,7 +13,7 @@ defaults: {
 });
 
 
-// *********************************collection setup***********************************************
+// *********************************collection setup*****************************
 
 var ContactsCollection = Backbone.Collection.extend({
   model: ContactModel ,
@@ -21,7 +21,7 @@ var ContactsCollection = Backbone.Collection.extend({
 });
 
 
-// *********************************exports setup***********************************************
+// *********************************exports setup********************************
 
 module.exports = {
   ContactModel: ContactModel,

@@ -39,7 +39,7 @@ this.collection.create({
   ContactState: contactState,
   ContactZipCode: contactZipCode,
 
-});
+}); 
 },
 
 });
