@@ -19,17 +19,26 @@ var LinkListing = Backbone.View.extend({
 
 
   initialize: function(){
-    this.listenTo(this.collection,'add',this.renderListingItem);
-    console.log(this.listenTo);
+    this.listenTo(this.collection, 'add', this.renderListingItem);
+    this.listenTo(this.collection, 'reset', this.render);
+    //We need a listeTo for our reset as above.
+    // console.log(this.listenTo);
   },
 
   render: function(){
+    var self = this;
+    //if we don't pass the var self and use this for renderListingItem,
+    //we would get undefined.
+    this.$el.empty();
+    this.collection.each(function(model){
+      self.renderListingItem(model);
+    });
     return this;
   },
 
-  renderListingItem: function(Links){
-    var linkItem = new LinkItemView({model: Links});
-    console.log('linkitem', linkItem);
+  renderListingItem: function(link){
+    var linkItem = new LinkItemView({model: link});
+    // console.log('linkitem', linkItem);
     this.$el.append(linkItem.render().el);
   }
 });
@@ -50,6 +59,7 @@ var LinkItemView = Backbone.View.extend({
     this.listenTo(this.model, 'destroy', this.remove);
     this.listenTo(this.model, 'changed', this.render);
     this.listenTo(this.model, 'change:visible', this.toggleVisible);
+
   },
 
   render: function(){
