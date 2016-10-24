@@ -1,60 +1,54 @@
 var Backbone = require('backbone');
-var models = require('./models/urltagmodels.js');
-var views = require('./views/urltagviews.js');
 var $ = require('jquery');
-
-// 5 -------------------------------- router set up -------------------------------------------------------
+var models = require('./models/links.js');
+var views = require('./views/linksviews.js');
+//
+// ###
+// 5-router setup
+// ###
 
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'bookmarks/:id/': 'getBookmarks',
-    // 'tags/:id/': 'getTags',
+    'tags/:id': 'getTags',
   },
 
-  initialize: function(){
-    this.collection = new models.UrlTagsCollections();
-    this.collection.fetch();
-    console.log('models.UrlTagsCollection', this.collection);
-  },
+// ###
+// 6 initialize
+// ###
 
-  // 6 ----------------------------- index setup ------------------------------------------------------
+initialize: function(){
+  this.collection = new models.LinksCollections();
+  this.collection.fetch();
 
-  index: function(){
-    var addUrlForm = new views.AddUrlFormView({collection: this.collection});
-    var urlListing = new views.UrlListingView({collection: this.collection});
-    console.log('urllistin', urlListing);
-    // var tagListing = new views.UrlItemView({collection: this.collection});
+  console.log(this.collection);
+},
 
-    $('.url-form')
-    .html(addUrlForm.render().el);
+// ###
+// 8-index setup
+// ###
 
-    $('.url-listings')
-    .append(urlListing.render().el);
-  },
+index: function(){
+  var linkListing = new views.LinkListing({collection:this.collection});
+  $('.link-listings')
+  .append(linkListing.render().el);
 
-  // 7 --------------------------- bookmarks setup -------------------------------------------------
+  var linkAddForm = new views.LinkAddForm({collection: this.collection});
+  $('.link-form')
+  .html(linkAddForm.render().el);
+},
 
-  getBookmarks: function(tag){
-    var self = this;
-    var bookmarks = this.collection.get(tag);
-    console.log(bookmarks);
+getTags: function(id){
+  var tags = this.collection.get(tag);
+  console.log('hello',tags);
+  var tagDetail = new views.TagView({model: tags});
+  console.log('hi',tagDetail);
 
-    if(!bookmarks){
-      this.collection.fetch().then(function(){
-        self.getBookmarks(tag);
-      });
-      return;
-    }
+  $('.tag-listing').html(tagDetail.render().el);
+},
 
-    var tagUrlListing = new views.TagUrlListingView({model: bookmarks});
-    console.log('tagUrlListing', tagUrlListing);
 
-    $('.tag-listing').html(tagUrlListing.render().el);
-  },
 
 });
-
-// 8 --------------------------------router setup and exports ------------------------------------
 var router = new AppRouter();
 module.exports = router;
