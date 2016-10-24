@@ -37,22 +37,29 @@ index: function(){
   $('.link-form')
   .html(linkAddForm.render().el);
 
+
+},
+
+getTags: function(tag){
+  var self = this;
+  console.log('self---->>>', self);
+  console.log('tag?', tag);
+  var links = this.collection.filter({tag: tag});
+  console.log(links);
+  this.collection.reset(links);
+
+  console.log('tags---->>>',tag);
+  if(!links){
+    this.index();
+    this.collection.fetch().then(function(){
+      self.getTag(tag);
+    });
+  return this;
+  }
   var tagListing = new views.TagView({collection: this.collection});
   $('.tag-listing')
   .html(tagListing.el);
 },
-
-getTags: function(id){
-  var self = this;
-  console.log('self---->>>', self);
-  var tags = this.collection;
-  //####
-  // Dan, above I need to do a .get(tag), but it returns undefined. Cannot figure out why???
-  //###
-  console.log('tags---->>>',tags);
-
-},
-
 
 
 });
