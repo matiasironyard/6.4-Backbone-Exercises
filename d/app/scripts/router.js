@@ -37,10 +37,6 @@ index: function(){
   $('.link-form')
   .html(linkAddForm.render().el);
 
-  var tagListing = new views.TagView({collection: this.collection});
-  $('.tag-listing')
-  .html(tagListing.el);
-
 },
 
 getTags: function(tag){
@@ -59,6 +55,11 @@ getTags: function(tag){
     });
   return this;
   }
+
+  var tagListing = new views.TagView({collection: this.collection});
+  $('.tag-listing')
+  .html(tagListing.el);
+
 },
 
 
