@@ -26,9 +26,9 @@ render: function(){
 },
 
 renderPostItem: function(BlogPostModel){
-  console.log(BlogPostModel);
+  // console.log(BlogPostModel);
   var postItem = new PostItemView({model: BlogPostModel});
-console.log(postItem);
+console.log('postitem',postItem);
   this.$el.append(postItem.render().el);
 }
 });
@@ -66,10 +66,13 @@ var PostDetail = Backbone.View.extend({
     className: 'blog-content-ul',
     initialize: function(){
       this.listenTo(this.model, 'changed', this.render);
+      console.log('listen to', this.listenTo());
     },
 
     render: function(){
       this.$el.html(this.template(this.model.toJSON()));
+      console.log(this);
+
       return this;
     }
 });

@@ -26,24 +26,27 @@ index: function(){
   var postListing = new views.PostListing ({collection: this.collection});
   $('.blog-list')
   .html(postListing.render().el);
-
+// console.log(postListing);
 },
 
 // 9 ****************************post setup *****************************************************
 
-getPost: function(id){
+getPost: function(x){
   var self = this;
-  var post = this.collection.get(id);
+  console.log(self);
+  var post = this.collection.get(x);
+  console.log('post', post);
 
   if(!post){
     this.index();
     this.collection.fetch().then(function(){
-      self.getPost(id);
+      self.getPost(x);
     });
     return;
   }
 
   var postDetail = new views.PostDetail({model: post});
+  // console.log('details', postDetail);
 
   $('.blog-post').html(postDetail.render().el);
 
