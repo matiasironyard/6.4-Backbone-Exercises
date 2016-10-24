@@ -20,6 +20,7 @@ var BlogPostForm = Backbone.View.extend({
     var currentDate = twoDigitMonth  + "/" + fullDate.getDate() + "/" + fullDate.getFullYear();
     console.log(currentDate);
 
+
     var postTitle = $('#post-title').val();
     var postContent = $('#post-content').val();
 
@@ -30,7 +31,9 @@ var BlogPostForm = Backbone.View.extend({
       PostTitle: postTitle,
       PostContent: postContent,
       currentDate:currentDate,
+
     });
+
 
   },
 
