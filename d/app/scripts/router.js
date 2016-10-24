@@ -36,15 +36,17 @@ index: function(){
   var linkAddForm = new views.LinkAddForm({collection: this.collection});
   $('.link-form')
   .html(linkAddForm.render().el);
+
+  var tagListing = new views.TagView({collection: this.collection});
+  $('.tag-listing')
+  .html(tags.render().el);
 },
 
 getTags: function(id){
-  var tags = this.collection.get(tag);
+  var self = this;
+  var tags = this.collection;
   console.log('hello',tags);
-  var tagDetail = new views.TagView({model: tags});
-  console.log('hi',tagDetail);
 
-  $('.tag-listing').html(tagDetail.render().el);
 },
 
 

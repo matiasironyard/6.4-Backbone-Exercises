@@ -27,4 +27,4 @@ var LinksCollections = Backbone.Collection.extend({
 module.exports = {
   Links: Links,
   LinksCollections: LinksCollections,
-};
+}
